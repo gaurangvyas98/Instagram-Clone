@@ -39,6 +39,7 @@ router.get("/getallpost", requireLogin, (req,res)=>{
     Post.find()
         .populate("postedBy", "_id name")
         .populate("comments.postedBy", "_id name")
+        .sort('-createdAt') //latest post to come on the top thats why "-"
         .then(posts=>{
             res.json({posts})
         })
@@ -55,6 +56,7 @@ router.get("/getsubscribeduserspost", requireLogin, (req,res)=>{
     Post.find({ postedBy: {$in: req.user.following }})
         .populate("postedBy", "_id name")
         .populate("comments.postedBy", "_id name")
+        .sort('-createdAt') //latest post to come on the top thats why "-"
         .then(posts=>{
             res.json({posts})
         })

@@ -25,7 +25,10 @@ const userSchema = new mongoose.Schema({
     pic: {
         type: String,
         default: "https://res.cloudinary.com/gaurangvyas/image/upload/v1596096267/debbie-molle-6DSID8Ey9-U-unsplash_k2xyap.jpg"
-    }
+    },
+    resetToken: String,
+    expireToken: Date
 })
+//added timestamp to add createdAt field to sort latest post first order
 
 mongoose.model("User",userSchema)

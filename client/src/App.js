@@ -9,7 +9,8 @@ import Signup from './Components/Screens/Signup';
 import CreatePost from './Components/Screens/CreatePost';
 import UserProfile from './Components/Screens/UserProfile';
 import SubscribedUsersPost from './Components/Screens/subscribedUsersPost';
-
+import ResetPassword from './Components/Screens/Reset';
+import NewPassword from './Components/Screens/Newpassword';
 
 import {initialState, reducer} from './Reducer/userReducer';
 
@@ -31,7 +32,9 @@ const Routing = () =>{
       // history.push("/");
     }
     else{
-      history.push("/signin")
+      //if pathname is not reset password
+      if(!history.location.pathname.startsWith("/reset"))
+        history.push("/signin")
     }
   },[])
   
@@ -58,6 +61,12 @@ const Routing = () =>{
       </Route>
       <Route path="/myfollowingpost"> 
         <SubscribedUsersPost /> 
+      </Route>
+      <Route exact path="/reset"> 
+        <ResetPassword /> 
+      </Route>
+      <Route path="/reset/:token"> 
+        <NewPassword /> 
       </Route>
     </Switch>
   )
