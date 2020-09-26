@@ -11,7 +11,7 @@ const User = mongoose.model("User");
 
 const {JWT_SECRET} = require("../config/key"); //secret key
 const {SENDGRID_API, EMAIL} = require("../config/key")//sendgrid api key
-const requireLogin = require("../middleware/requireLogin");
+// const requireLogin = require("../middleware/requireLogin");
 
 
 // "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"

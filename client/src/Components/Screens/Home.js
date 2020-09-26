@@ -120,7 +120,7 @@ const Home=()=>{
             M.toast({html: "deleted post in successfully",classes:"rounded #43a047 green darken-1"})
         })
     }
-
+    console.log(data);
     return (
         <div className="home">
             {

@@ -12,6 +12,9 @@ const Navbar=()=>{
     const searchModal = useRef(null)
     useEffect(()=>{
         M.Modal.init(searchModal.current)
+        //responsive hamburger icon when opened in mobile
+        let sidenav = document.querySelector('.sidenav');
+        M.Sidenav.init(sidenav, {});
     },[])
 
     //this function will return profile, create post link in nav if user is logged in otherwise it will return login and signup link in the navbar
@@ -62,19 +65,22 @@ const Navbar=()=>{
     }
 
     return(
-        <div class="navbar-fixed">
-        <nav> 
-            <div className="nav-wrapper white">
-                <Link to= {state ? "/" : "/signin"}  className="brand-logo left">Instagram</Link>
-                <ul id="nav-mobile" className="right">
+        <div>
+        <nav className="nav-wrapper white">
+            <div className="container">
+                <Link to= {state ? "/" : "/signin"}  className="brand-logo">Instagram</Link>
+                <a href="" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                <ul className="right hide-on-med-and-down">
                     {renderList()}
-            
                 </ul>
             </div>
         </nav>
-                
-        {/* Modal Structure  classname modal useRef is referring to in the useEffect*/}
-        <div id="modal1" className="modal" ref={searchModal}>
+
+        <ul className="sidenav center-align" id="mobile-demo" >
+                {renderList()}
+        </ul>
+         {/* Modal Structure  classname modal useRef is referring to in the useEffect*/}
+         <div id="modal1" className="modal" ref={searchModal}>
             <div className="modal-content">
                 <input
                     type="text"
@@ -101,3 +107,49 @@ const Navbar=()=>{
 
 export default Navbar;
 
+// style={{ padding: "0 10px", backgroundColor: "white"}}
+
+
+
+
+
+
+  // <div class="navbar-fixed">
+        // <nav>  
+        //     <div className="nav-wrapper white ">
+                // <Link to= {state ? "/" : "/signin"}  className="brand-logo left">Instagram</Link>
+                // <a href="" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                // <ul id="nav-mobile" className="right hide-on-med-and-down">
+                //     {renderList()}
+            
+                // </ul>
+        //     </div>
+        // </nav>
+
+        // {/* SIDE BAR/MOBILE SIDE BAR RESPONSIVE LIST */}
+        // <ul className="sidenav center-align" id="mobile-demo" >
+        //         {renderList()}
+        // </ul>
+        // {/* Modal Structure  classname modal useRef is referring to in the useEffect*/}
+        // <div id="modal1" className="modal" ref={searchModal}>
+        //     <div className="modal-content">
+        //         <input
+        //             type="text"
+        //             placeholder="Search users"
+        //             value={userSearch}
+        //             onChange={(e)=>fetchUserSearch(e.target.value)}
+        //         />
+        //         <ul className="collection">
+        //             {userDetails.map(item=>{
+        //                 return  <Link to={item._id !== state._id ? "/profile/"+item._id : '/profile'} onClick={()=>{
+        //                             M.Modal.getInstance(searchModal.current).close()
+        //                             setUserSearch('')
+        //                         }}><li className="collection-item">{item.email}</li></Link>
+        //             })} 
+        //         </ul>
+        //     </div>
+        //     <div className="modal-footer">
+        //     <button className="modal-close waves-effect waves-green btn-flat" onClick={()=>{setUserSearch("")}}>Close</button>
+        //     </div>
+        // </div>
+        // </div>
