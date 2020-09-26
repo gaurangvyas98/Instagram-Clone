@@ -18,7 +18,7 @@ const UserProfile=()=>{
             }
         }).then(res=>res.json())
           .then(result=>{
-                console.log(result)
+                // console.log(result)
                 setUserProfile(result)
            })
     },[]);
@@ -36,7 +36,7 @@ const UserProfile=()=>{
         }).then(res=>res.json())
         .then(data=>{
         
-            console.log(data)
+            // console.log(data)
             //updating state, adding follwers and follwing in the state
             dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
              localStorage.setItem("user",JSON.stringify(data))
@@ -68,7 +68,7 @@ const UserProfile=()=>{
         }).then(res=>res.json())
         .then(data=>{
         
-            console.log(data)
+            // console.log(data)
             //updating state, adding follwers and follwing in the state
             dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
              localStorage.setItem("user",JSON.stringify(data))

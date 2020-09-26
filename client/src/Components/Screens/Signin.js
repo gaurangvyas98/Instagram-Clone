@@ -26,10 +26,9 @@ const Signin=()=>{
             password,
             email,
         })
-    }).then(console.log("State : ", password, email))
-      .then(res=>res.json())
+    }).then(res=>res.json())
       .then(data=>{
-        console.log("user DATA: ",data)
+        // console.log("user DATA: ",data)
         if(data.error){
             M.toast({html: data.error,classes:"rounded #c62828 red darken-3"})
         }

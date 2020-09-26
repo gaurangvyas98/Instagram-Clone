@@ -27,10 +27,10 @@ const CreatePost=()=>{
                 pic: url,
 
             })
-            }) .then(console.log("State : ", title, body, url))
+             }) //.then(console.log("State : ", title, body, url))
                .then(res=>res.json())
                .then(data=>{
-                    console.log("user DATA: ",data)
+                    // console.log("user DATA: ",data)
                     if(data.error){
                         M.toast({html: data.error,classes:"rounded #c62828 red darken-3"})
                     }

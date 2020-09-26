@@ -8,7 +8,7 @@ const NewPassword=()=>{
   const [password, setPassword] = useState("");
 
   const {token} = useParams()
-  console.log(token)
+  // console.log(token)
 
   const postData=()=>{
       fetch("/new-password",{
@@ -20,10 +20,9 @@ const NewPassword=()=>{
             password,
             token
         })
-    }).then(console.log("State : ", password))
-      .then(res=>res.json())
+    }).then(res=>res.json())
       .then(data=>{
-        console.log("user DATA: ",data)
+        // console.log("user DATA: ",data)
         if(data.error){
             M.toast({html: data.message,classes:"rounded #c62828 red darken-3"})
         }

@@ -55,8 +55,7 @@ const Signup=()=>{
             email,
             pic: url
         })
-    }).then(console.log("State : ", name, password, email))
-      .then(res=>res.json())
+    }).then(res=>res.json())
       .then(data=>{
         if(data.error){
             M.toast({html: data.error,classes:"rounded #c62828 red darken-3"})

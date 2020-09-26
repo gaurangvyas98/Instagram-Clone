@@ -88,7 +88,7 @@ const Home=()=>{
             })
         }).then(res=>res.json())
         .then(result=>{
-            console.log(result)
+            // console.log(result)
             const newData = data.map(item=>{
               if(item._id==result._id){
                   return result
@@ -120,7 +120,7 @@ const Home=()=>{
             M.toast({html: "deleted post in successfully",classes:"rounded #43a047 green darken-1"})
         })
     }
-    console.log(data);
+    // console.log(data);
     return (
         <div className="home">
             {

@@ -15,7 +15,7 @@ const SubscribedUsersPost=()=>{
             }
         }).then(res=>res.json())
           .then(result=>{
-               console.log(result.posts)
+            //    console.log(result.posts)
               setData(result.posts);
           })
     },[])
@@ -87,7 +87,7 @@ const SubscribedUsersPost=()=>{
             })
         }).then(res=>res.json())
         .then(result=>{
-            console.log(result)
+            // console.log(result)
             const newData = data.map(item=>{
               if(item._id==result._id){
                   return result
@@ -111,7 +111,7 @@ const SubscribedUsersPost=()=>{
             }
         }).then(res=>res.json())
         .then(result=>{
-            console.log(result)
+            // console.log(result)
             const newData = data.filter(item=>{
                 return item._id !== result._id
             })
